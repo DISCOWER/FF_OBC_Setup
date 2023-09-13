@@ -36,7 +36,7 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git
 2. Set up the ROS2 workspace *PX4-Space-Systems_ROS2_WS*
 
    ```
-   git clone git@github.com:DISCOWER/PX4-Space-Systems_ROS2_WS.git /home/discower
+   git clone https://github.com/DISCOWER/PX4-Space-Systems_ROS2_WS.git
    cd ~/PX4-Space-Systems_ROS2_WS/
    colcon build
    ```
