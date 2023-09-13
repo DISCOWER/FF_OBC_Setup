@@ -4,7 +4,7 @@ Setup routine and scripts for DISCOWER's FreeFlyers' onboard computers (OBC).
 ## Clone this repo
 
 ```
-git clone https://github.com/DISCOWER/FF_OBC_Setup.git
+git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Setup
 ```
 
 ## Install ROS2 Foxy
@@ -36,7 +36,7 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git
 2. Set up the ROS2 workspace *PX4-Space-Systems_ROS2_WS*
 
    ```
-   git clone https://github.com/DISCOWER/PX4-Space-Systems_ROS2_WS.git
+   git clone https://github.com/DISCOWER/PX4-Space-Systems_ROS2_WS.git /home/discower/PX4-Space-Systems_ROS2_WS
    cd ~/PX4-Space-Systems_ROS2_WS/
    colcon build
    ```
