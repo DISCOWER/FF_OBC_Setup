@@ -4,7 +4,7 @@ Setup routine and scripts for DISCOWER's FreeFlyers' onboard computers (OBC).
 ## Clone this repo
 
 ```
-git clone git@github.com:DISCOWER/FF_OBC_Setup.git
+git clone https://github.com/DISCOWER/FF_OBC_Setup.git
 ```
 
 ## Install ROS2 Foxy
