@@ -47,8 +47,8 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    ```
    sudo cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_comm.service /etc/systemd/system/
    sudo systemctl daemon-reload
-   sudo systemctl enable startup_px4_comm.service
-   sudo systemctl start startup_px4_comm.service
+   sudo systemctl enable startup_px4_comm
+   sudo systemctl start startup_px4_comm
    ```
 
    
