@@ -45,7 +45,7 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
 3. Add the startup service
 
    ```
-   cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_comm.service /etc/systemd/system/
+   sudo cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_comm.service /etc/systemd/system/
    sudo systemctl daemon-reload
    sudo systemctl enable startup_px4_comm.service
    sudo systemctl start startup_px4_comm.service
