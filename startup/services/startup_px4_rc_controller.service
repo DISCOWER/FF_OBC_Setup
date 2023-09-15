@@ -1,0 +1,12 @@
+[Unit]
+Description=Startup Applications
+
+[Service]
+ExecStart=/home/discower/FF_OBC_Setup/startup/startup_px4_rc_controller.sh
+User=discower
+Type=forking
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+

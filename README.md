@@ -51,4 +51,15 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    sudo systemctl start startup_px4_comm
    ```
 
-   
+
+## For RC controller (optional)
+
+Add the startup service
+
+```
+sudo cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_rc_controller.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable startup_px4_rc_controller
+sudo systemctl start startup_px4_rc_controller
+```
+
