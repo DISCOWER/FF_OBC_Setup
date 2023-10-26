@@ -1,0 +1,12 @@
+[Unit]
+Description=Communicate with gripper via teensy
+
+[Service]
+ExecStart=/home/discower/FF_OBC_Setup/scripts/gripper_comm.sh
+User=discower
+Type=forking
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+

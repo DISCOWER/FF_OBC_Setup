@@ -1,8 +1,8 @@
 [Unit]
-Description=Startup Applications
+Description=Communicate with PX4
 
 [Service]
-ExecStart=/home/discower/FF_OBC_Setup/startup/startup_px4_comm.sh
+ExecStart=/home/discower/FF_OBC_Setup/scripts/px4_comm.sh
 User=discower
 Type=forking
 TimeoutStopSec=5
