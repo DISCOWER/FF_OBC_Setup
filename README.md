@@ -19,18 +19,33 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
 
 ## PX4 at startup scripts and comm.
 
-1. Install Micro-XRCE-agent
+1. Install Micro-ROS-agent
 
    ```
-   cd /home/discower/
-   git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git
-   cd Micro-XRCE-DDS-Agent
-   mkdir build
-   cd build
-   cmake ..
-   make
-   sudo make install
-   sudo ldconfig /usr/local/lib/
+   # Source the ROS 2 installation
+   source /opt/ros/foxy/setup.bash
+
+   # Create a workspace and download the micro-ROS tools
+   mkdir ~/microros_ws
+   cd ~/microros_ws
+   git clone -b $ROS_DISTRO https://github.com/micro-ROS/micro_ros_setup.git src/micro_ros_setup
+
+   # Update dependencies using rosdep
+   sudo apt update && rosdep update
+   rosdep install --from-paths src --ignore-src -y
+
+   # Install pip
+   sudo apt-get install python3-pip
+   
+   # Build micro-ROS tools and source them
+   colcon build
+   source install/local_setup.bash
+
+   # Download micro-ROS agent packages
+   ros2 run micro_ros_setup create_agent_ws.sh
+   
+   # Build step
+   ros2 run micro_ros_setup build_agent.sh
    ```
 
 2. Set up the ROS2 workspace *PX4-Space-Systems_ROS2_WS*
@@ -45,21 +60,21 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
 3. Add the startup service
 
    ```
-   sudo cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_comm.service /etc/systemd/system/
+   sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
    sudo systemctl daemon-reload
-   sudo systemctl enable startup_px4_comm
-   sudo systemctl start startup_px4_comm
+   sudo systemctl enable px4_comm
+   sudo systemctl start px4_comm
    ```
 
 
-## For RC controller (optional)
+## For SAM Gripper
 
 Add the startup service
 
 ```
-sudo cp /home/discower/FF_OBC_Setup/startup/services/startup_px4_rc_controller.service /etc/systemd/system/
+sudo cp /home/discower/FF_OBC_Setup/services/gripper_comm.service /etc/systemd/system/
 sudo systemctl daemon-reload
-sudo systemctl enable startup_px4_rc_controller
-sudo systemctl start startup_px4_rc_controller
+sudo systemctl enable gripper_comm
+sudo systemctl start gripper_comm
 ```
 
