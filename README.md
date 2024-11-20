@@ -7,6 +7,18 @@ Setup routine and scripts for DISCOWER's FreeFlyers' onboard computers (OBC).
 git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Setup
 ```
 
+## Set the hostname
+
+1. Change the hostname.
+   ```
+   sudo hostnamectl set-hostname <hostname>
+   ```
+2. Edit the /etc/hosts file.
+   ```
+   sudo vim /etc/hosts
+   ```
+   Find the line that starts with 127.0.0.1 or 127.0.1.1 followed by the old hostname (probably discower) and change it to the new hostname. Save and close the file.
+
 ## Install ROS2 Foxy
 
 1. Follow installation instructions at https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html
