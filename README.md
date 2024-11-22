@@ -29,6 +29,17 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
    ```
 
+## Set up ROS2 Workspace
+1. Set up workspace. Clone and build required ros2 packages.
+   ```
+   mkdir -p ~/discower_ws/src/
+   cd ~/discower_ws/src/
+   git clone git@github.com:DISCOWER/px4_msgs.git
+   git clone git@github.com:DISCOWER/srl_vehicle_mocap_odom.git
+   cd ~/discower_ws
+   colcon build
+   ```
+
 ## Install Micro-XRCE-DDS-Agent
  Install with snap-store
 ```
@@ -37,12 +48,12 @@ sudo snap install micro-xrce-dds-agent
 
 ## Add the startup service
 
-   ```
-   sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
-   sudo systemctl daemon-reload
-   sudo systemctl enable px4_comm
-   sudo systemctl start px4_comm
-   ```
+```
+sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
+sudo systemctl daemon-reload
+sudo systemctl enable px4_comm
+sudo systemctl start px4_comm
+```
 
 ## Optional: Set up SAM gripper
 

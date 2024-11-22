@@ -1,0 +1,12 @@
+[Unit]
+Description=Publish Vehicle Mocap Odometry
+
+[Service]
+ExecStart=/home/discower/FF_OBC_Setup/scripts/vehicle_mocap_odom.sh
+User=discower
+Type=forking
+TimeoutStopSec=5
+
+[Install]
+WantedBy=multi-user.target
+
