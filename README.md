@@ -19,17 +19,32 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    ```
    Find the line that starts with 127.0.0.1 or 127.0.1.1 followed by the old hostname (probably discower) and change it to the new hostname. Save and close the file.
 
-## Install ROS2 Foxy
+## Install ROS2 Humble
 
-1. Follow installation instructions at https://docs.ros.org/en/foxy/Installation/Ubuntu-Install-Debians.html
+1. Follow installation instructions at https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
 
 2. Source ROS2 by default
 
    ```
-   echo "source /opt/ros/foxy/setup.bash" >> ~/.bashrc
+   echo "source /opt/ros/humble/setup.bash" >> ~/.bashrc
    ```
 
-## PX4 at startup scripts and comm.
+## Install Micro-XRCE-DDS-Agent
+ Install with snap-store
+```
+sudo snap install micro-xrce-dds-agent
+```
+
+## Add the startup service
+
+   ```
+   sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
+   sudo systemctl daemon-reload
+   sudo systemctl enable px4_comm
+   sudo systemctl start px4_comm
+   ```
+
+## Optional: Set up SAM gripper
 
 1. Install Micro-ROS-agent
 
@@ -60,33 +75,12 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    ros2 run micro_ros_setup build_agent.sh
    ```
 
-2. Set up the ROS2 workspace *PX4-Space-Systems_ROS2_WS*
+2. Add the startup service
 
    ```
-   git clone https://github.com/DISCOWER/PX4-Space-Systems_ROS2_WS.git /home/discower/PX4-Space-Systems_ROS2_WS
-   cd ~/PX4-Space-Systems_ROS2_WS/
-   colcon build
-   ```
-
-
-3. Add the startup service
-
-   ```
-   sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
+   sudo cp /home/discower/FF_OBC_Setup/services/gripper_comm.service /etc/systemd/system/
    sudo systemctl daemon-reload
-   sudo systemctl enable px4_comm
-   sudo systemctl start px4_comm
+   sudo systemctl enable gripper_comm
+   sudo systemctl start gripper_comm
    ```
-
-
-## For SAM Gripper
-
-Add the startup service
-
-```
-sudo cp /home/discower/FF_OBC_Setup/services/gripper_comm.service /etc/systemd/system/
-sudo systemctl daemon-reload
-sudo systemctl enable gripper_comm
-sudo systemctl start gripper_comm
-```
 
