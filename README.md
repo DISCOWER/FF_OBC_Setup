@@ -49,10 +49,12 @@ sudo snap install micro-xrce-dds-agent
 ## Add the startup service
 
 ```
-sudo cp /home/discower/FF_OBC_Setup/services/px4_comm.service /etc/systemd/system/
+sudo cp /home/discower/FF_OBC_Setup/services/* /etc/systemd/system/
 sudo systemctl daemon-reload
 sudo systemctl enable px4_comm
 sudo systemctl start px4_comm
+sudo systemctl enable vehicle_mocap_odom
+sudo systemctl start vehicle_mocap_odom
 ```
 
 ## Optional: Set up SAM gripper
