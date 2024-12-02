@@ -41,9 +41,10 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    ```
 
 ## Install Micro-XRCE-DDS-Agent
- Install with snap-store
+Install with snap-store
+
 ```bash
-sudo snap install micro-xrce-dds-agent
+sudo snap install micro-xrce-dds-agent --edge
 ```
 
 ## Add the startup service
