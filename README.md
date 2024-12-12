@@ -19,6 +19,18 @@ git clone https://github.com/DISCOWER/FF_OBC_Setup.git /home/discower/FF_OBC_Set
    ```
    Find the line that starts with 127.0.0.1 or 127.0.1.1 followed by the old hostname (probably discower) and change it to the new hostname. Save and close the file.
 
+## Setup WiFi 7
+
+1. Install `iwlwifi-modules` with
+   ```bash
+   sudo apt install -y iwlwifi-modules
+   ```
+2. Setup boot support for the module
+   ```bash
+   echo iwlwifi | sudo tee -a /etc/modules
+   ```
+
+
 ## Install ROS2 Humble
 
 1. Follow installation instructions at https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debians.html
